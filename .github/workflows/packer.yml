@@ -9,3 +9,9 @@ jobs:
     steps:
       - name: echo
         run: echo hello!
+
+  show:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show secret
+        run: echo ${{ secrets.AZURE_CLIENT_ID }}
