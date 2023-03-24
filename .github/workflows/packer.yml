@@ -3,15 +3,15 @@ name: create azure image by packer
 on: [push]
 
 jobs:
-  echo:
-    runs-on: ubuntu-latest
-
+  packer:
+    run-on: ubuntu-latest
+    name: Run Packer
     steps:
-      - name: echo
-        run: echo hello!
+      - name: Checkout
+        uses: actions/checkout@v3
 
-  show:
-    runs-on: ubuntu-latest
-    steps:
-      - name: show secret
-        run: echo ${{ secrets.AZURE_CLIENT_ID }}
+      - name: Setup `packer`
+        uses: hashicorp/setup-packer@main
+      
+      - name: Run `packer validate`
+        run: "packer validate ./azure-ubuntu.pkr.hcl"
