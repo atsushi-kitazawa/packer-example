@@ -1,0 +1,11 @@
+name: create azure image by packer
+
+on: [push]
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: echo
+        run: echo hello!
