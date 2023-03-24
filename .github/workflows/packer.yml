@@ -12,6 +12,6 @@ jobs:
 
       - name: Setup `packer`
         uses: hashicorp/setup-packer@main
-      
+
       - name: Run `packer validate`
-        run: "packer validate ./azure-ubuntu.pkr.hcl"
+        run: "packer validate --var client_id=${{ secrets.AZURE_CLIENT_ID}} --var client_secret=${{ secrets.AZURE_CLIENT_SECRET}} --var subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }} --var tenant_id=${{ AZURE_TENANT_ID }} ./azure-ubuntu.pkr.hcl"
