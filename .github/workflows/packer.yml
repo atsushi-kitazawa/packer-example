@@ -1,6 +1,9 @@
 name: create azure image by packer
 
-on: [push]
+on: 
+  push:
+    branches-ignore:
+      - '**'
 
 jobs:
   packer:
