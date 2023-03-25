@@ -15,3 +15,6 @@ jobs:
 
       - name: Run `packer validate`
         run: "packer validate --var client_id=${{ secrets.AZURE_CLIENT_ID}} --var client_secret=${{ secrets.AZURE_CLIENT_SECRET}} --var subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }} --var tenant_id=${{ secrets.AZURE_TENANT_ID }} ./azure-ubuntu.pkr.hcl"
+
+      - name: Run `packer build`
+        run: "packer build --var client_id=${{ secrets.AZURE_CLIENT_ID}} --var client_secret=${{ secrets.AZURE_CLIENT_SECRET}} --var subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }} --var tenant_id=${{ secrets.AZURE_TENANT_ID }} ./azure-ubuntu.pkr.hcl"
